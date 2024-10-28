@@ -10,6 +10,11 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void OnControlButton()
+    {
+        SceneManager.LoadScene(8);
+    }
+
     public void OnQuitButton()
     {
         Application.Quit();
