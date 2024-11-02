@@ -7,8 +7,10 @@ public class JumpController : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
     [SerializeField] int jumpPower;
     [SerializeField] BoxCollider2D groundCheck;
+    [SerializeField] BoxCollider2D wallCheck;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] bool isGrounded;
+    [SerializeField] bool isWalled;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +22,12 @@ public class JumpController : MonoBehaviour
     void Update()
     {
         isGrounded = Physics2D.OverlapAreaAll(groundCheck.bounds.min, groundCheck.bounds.max, groundLayer).Length > 0;
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        isWalled = Physics2D.OverlapAreaAll(wallCheck.bounds.min, wallCheck.bounds.max, groundLayer).Length > 0;
+        if ((Input.GetButtonDown("Jump") && isGrounded) || (Input.GetButtonDown("Jump") && isWalled))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpPower);
         }
+
     }
 
 }
