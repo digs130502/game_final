@@ -62,7 +62,7 @@ public class EnemyPatrol : MonoBehaviour
     }
 
 
-    //TODO: Fix collision so enemies pass through each other
+
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Bullet"))
@@ -72,9 +72,14 @@ public class EnemyPatrol : MonoBehaviour
 
         if (other.gameObject.CompareTag("Enemy"))
         {
-            if (collisionBoxCollider != null && polygonCollider != null)
+            Collider2D otherCollider = other.collider; // Get the collider of the other enemy
+            if (collisionBoxCollider != null && otherCollider != null)
             {
-                Physics2D.IgnoreCollision(polygonCollider, collisionBoxCollider);
+                Physics2D.IgnoreCollision(collisionBoxCollider, otherCollider);
+            }
+            if (polygonCollider != null && otherCollider != null)
+            {
+                Physics2D.IgnoreCollision(polygonCollider, otherCollider);
             }
         }
     }
