@@ -7,10 +7,13 @@ public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
     [SerializeField] bool isPaused;
+
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
+        // Ensure time scale is normal when starting the scene
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -45,6 +48,8 @@ public class PauseMenu : MonoBehaviour
 
     public void OnMenu()
     {
+        // Ensure time scale is reset before leaving the scene
+        Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
 }
