@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Bullet"))
+        if (other.gameObject.CompareTag("Enemy Bullet"))
         {
             TakeDamage(1);
         }
