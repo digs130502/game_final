@@ -13,7 +13,7 @@ public class LoseScene : MonoBehaviour
 
     IEnumerator Lose()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
 
         SceneManager.LoadScene(1);
     }
