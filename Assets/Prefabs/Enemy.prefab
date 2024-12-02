@@ -140,6 +140,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1024923171569034277, guid: 9c5c74183f186404c9f815d59f8cbe18, type: 3}
   bulletForce: 15
   enemyMovement: {fileID: 6019057265616806564}
+  shootSound: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
 --- !u!61 &4922297114442538328
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -351,11 +352,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.3
+      value: 18.47
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.14
+      value: -1.77
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
       propertyPath: m_LocalPosition.z

@@ -8,6 +8,7 @@ public class Shooting : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float bulletForce = 20f;
     [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] AudioClip shootingAudio;
 
     // Update is called once per frame
     void Update()
@@ -15,6 +16,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetKeyDown("j"))
         {
             Shoot();
+            AudioSource.PlayClipAtPoint(shootingAudio, transform.position);
         }
     }
 

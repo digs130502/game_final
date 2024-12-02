@@ -10,6 +10,7 @@ public class EnemySight : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float bulletForce = 15f;
     [SerializeField] EnemyPatrol enemyMovement;
+    [SerializeField] AudioClip shootSound;
     private bool playerInSight = false;
 
     void Shoot()
@@ -46,6 +47,7 @@ public class EnemySight : MonoBehaviour
         while (playerInSight)
         {
             Shoot();
+            AudioSource.PlayClipAtPoint(shootSound, transform.position);
             yield return new WaitForSeconds(1f); // Wait for 1 second before shooting again
         }
     }
