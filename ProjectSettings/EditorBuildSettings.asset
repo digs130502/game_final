@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Controls.unity
     guid: 0c47fb422a3394be5a317f4b0d2e6d8f
+  - enabled: 1
+    path: Assets/Scenes/BruceUnlock.unity
+    guid: 8fed6d429fe25499c9726495aba26dd9
+  - enabled: 1
+    path: Assets/Scenes/ChuckUnlock.unity
+    guid: 509d1be26aa9f4aee8b291b9bee98d2a
   m_configObjects: {}

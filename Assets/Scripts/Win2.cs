@@ -9,7 +9,7 @@ public class Win2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(6);
+            SceneManager.LoadScene(9);
             GameManager.Instance.UnlockCharacter(1); // unlocks bruce character
         }
     }
