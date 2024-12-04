@@ -8,7 +8,9 @@ public class Shooting : MonoBehaviour
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] float bulletForce = 20f;
     [SerializeField] PlayerMovement playerMovement;
-    [SerializeField] AudioClip shootingAudio;
+
+    [SerializeField] AudioClip defaultShootingAudio; // Default sound for Rambo and Bruce
+    [SerializeField] AudioClip chuckShootingAudio;   // Unique sound for Chuck
 
     [SerializeField] SpriteRenderer playerSpriteRenderer; // Reference to the player's sprite renderer
     [SerializeField] Sprite ramboSprite; // Rambo's sprite
@@ -39,7 +41,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetKeyDown("j"))
         {
             ShootSingleBullet();
-            AudioSource.PlayClipAtPoint(shootingAudio, transform.position);
+            PlayShootingSound(defaultShootingAudio);
         }
     }
 
@@ -61,7 +63,7 @@ public class Shooting : MonoBehaviour
         if (Input.GetKeyDown("j"))
         {
             ShootShotgun();
-            AudioSource.PlayClipAtPoint(shootingAudio, transform.position);
+            PlayShootingSound(chuckShootingAudio);
         }
     }
 
@@ -78,7 +80,7 @@ public class Shooting : MonoBehaviour
         while (isFiringContinuously)
         {
             ShootSingleBullet();
-            AudioSource.PlayClipAtPoint(shootingAudio, transform.position);
+            PlayShootingSound(defaultShootingAudio);
             yield return new WaitForSeconds(0.2f); // Adjust fire rate as needed
         }
     }
@@ -101,6 +103,14 @@ public class Shooting : MonoBehaviour
             if (!playerMovement.isFacingRight) shootingDirection = -shootingDirection;
 
             rb.AddForce(shootingDirection * bulletForce, ForceMode2D.Impulse);
+        }
+    }
+
+    void PlayShootingSound(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            AudioSource.PlayClipAtPoint(clip, transform.position);
         }
     }
 }

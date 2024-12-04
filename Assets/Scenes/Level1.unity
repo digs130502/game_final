@@ -23282,6 +23282,14 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1515955790}
+    - target: {fileID: 3943656329091762568, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
+      propertyPath: chuckShootingAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
+    - target: {fileID: 3943656329091762568, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
+      propertyPath: defaultShootingAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 3061c7b9b32d894478e4126ccce25ca3, type: 3}
     - target: {fileID: 6314100029819054214, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.14
@@ -23326,14 +23334,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rambo
       objectReference: {fileID: 0}
-    - target: {fileID: 8888085692281984437, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
-      propertyPath: throwPoint
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8888085692281984437, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
-    m_RemovedGameObjects:
-    - {fileID: 6733993493136991605, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
