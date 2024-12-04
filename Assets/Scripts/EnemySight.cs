@@ -12,6 +12,7 @@ public class EnemySight : MonoBehaviour
     [SerializeField] EnemyPatrol enemyMovement;
     [SerializeField] AudioClip shootSound;
     private bool playerInSight = false;
+    private bool isShooting = false; // New flag to prevent multiple coroutines
 
     void Shoot()
     {
@@ -21,7 +22,6 @@ public class EnemySight : MonoBehaviour
         Vector2 shootingDirection = enemyMovement.isFacingRight ? gun.right : -gun.right;
 
         rb.AddForce(shootingDirection * bulletForce, ForceMode2D.Impulse);
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,7 +29,10 @@ public class EnemySight : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerInSight = true;
-            StartCoroutine(ShootRoutine());
+            if (!isShooting) // Start the coroutine only if not already shooting
+            {
+                StartCoroutine(ShootRoutine());
+            }
         }
     }
 
@@ -38,18 +41,18 @@ public class EnemySight : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             playerInSight = false;
-            StopCoroutine(ShootRoutine()); // Stop shooting when player exits sight
         }
     }
 
     IEnumerator ShootRoutine()
     {
+        isShooting = true; // Indicate that shooting is active
         while (playerInSight)
         {
             Shoot();
             AudioSource.PlayClipAtPoint(shootSound, transform.position);
             yield return new WaitForSeconds(1f); // Wait for 1 second before shooting again
         }
+        isShooting = false; // Reset the flag when shooting stops
     }
-
 }

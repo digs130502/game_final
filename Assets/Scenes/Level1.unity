@@ -23282,6 +23282,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1515955790}
+    - target: {fileID: 1977346928320552947, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
+      propertyPath: groundDecay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6314100029819054214, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.14
@@ -23325,6 +23329,10 @@ PrefabInstance:
     - target: {fileID: 6507079179306156259, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
       propertyPath: m_Name
       value: Rambo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8888085692281984437, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
+      propertyPath: throwArcHeight
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
