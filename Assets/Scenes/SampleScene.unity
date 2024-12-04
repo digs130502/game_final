@@ -404,6 +404,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelectedCharacterId: 0
+  playerSpriteRenderer: {fileID: 621725887908185967, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
+  characterSprites:
+  - {fileID: 4421199962449419008, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
+  - {fileID: 5314077070027530890, guid: 9de9d5b0e74364c798801161fd25e6fd, type: 3}
+  - {fileID: 88181569045615764, guid: 8ea94883755b048da832f2bf6f721271, type: 3}
 --- !u!4 &150425129
 Transform:
   m_ObjectHideFlags: 0

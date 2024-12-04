@@ -25,4 +25,9 @@ public class LevelSelector : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void onTest()
+    {
+        SceneManager.LoadScene(12);
+    }
 }

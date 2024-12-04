@@ -10,6 +10,7 @@ public class CharacterSelector : MonoBehaviour
     void Start()
     {
         UpdateCharacterUI();
+        selectButton.onClick.AddListener(OnCharacterClicked); // Ensure the button listener is added
     }
 
     void UpdateCharacterUI()
@@ -29,6 +30,6 @@ public class CharacterSelector : MonoBehaviour
     public void OnCharacterClicked()
     {
         GameManager.Instance.SelectCharacter(characterId);
-        Debug.Log("Character " + characterId + " clicked.");
+        Debug.Log("Character " + characterId + " clicked and selected.");
     }
 }

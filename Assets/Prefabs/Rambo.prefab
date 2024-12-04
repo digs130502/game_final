@@ -197,37 +197,6 @@ PolygonCollider2D:
       - {x: 0.5251311, y: 0.058565214}
       - {x: 0.5249673, y: 0.23765439}
   m_UseDelaunayMesh: 0
---- !u!1 &6733993493136991605
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7154867927984409881}
-  m_Layer: 0
-  m_Name: GrenadePoint
-  m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7154867927984409881
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6733993493136991605}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.612, y: 1.681, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6314100029819054214}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7586478844507052097
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +298,10 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3626916397498700004, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5314077070027530890, guid: 9de9d5b0e74364c798801161fd25e6fd, type: 3}
     - target: {fileID: 7878350319992209165, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -400,9 +373,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7878350319992209165, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2610711067919952155}
-    - targetCorrespondingSourceObject: {fileID: 7878350319992209165, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7154867927984409881}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
       insertIndex: -1
@@ -419,10 +389,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 889373513573877876}
-    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8888085692281984437}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
+--- !u!212 &621725887908185967 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 3626916397498700004, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
+  m_PrefabInstance: {fileID: 4248501221219735435}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6314100029819054214 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
@@ -498,6 +470,10 @@ MonoBehaviour:
   bulletForce: 20
   playerMovement: {fileID: 1977346928320552947}
   shootingAudio: {fileID: 8300000, guid: 3061c7b9b32d894478e4126ccce25ca3, type: 3}
+  playerSpriteRenderer: {fileID: 621725887908185967}
+  ramboSprite: {fileID: 4421199962449419008, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
+  bruceSprite: {fileID: 5314077070027530890, guid: 9de9d5b0e74364c798801161fd25e6fd, type: 3}
+  chuckSprite: {fileID: 88181569045615764, guid: 8ea94883755b048da832f2bf6f721271, type: 3}
 --- !u!114 &8053599365223843327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,19 +510,3 @@ MonoBehaviour:
   maxHealth: 5
   currentHealth: 0
   healthBar: {fileID: 0}
---- !u!114 &8888085692281984437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6507079179306156259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 933924e3c7cf2410d8cf9acbd590f496, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grenadePrefab: {fileID: 7079419363872222613, guid: ef5b2dd60f0524a7cbbe30008aa43376, type: 3}
-  throwPoint: {fileID: 7154867927984409881}
-  throwForce: 10
-  throwArcHeight: 8
