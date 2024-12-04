@@ -37,7 +37,7 @@ public class MusicManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // Determine which music to play based on scene index
-        if (scene.buildIndex == 0 || scene.buildIndex == 1 || scene.buildIndex == 8)
+        if (scene.buildIndex == 0 || scene.buildIndex == 1 || scene.buildIndex == 8 || scene.buildIndex == 12)
         {
             PlayMusic(menuMusic);
         }
