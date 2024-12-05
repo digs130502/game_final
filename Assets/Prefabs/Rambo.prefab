@@ -469,12 +469,13 @@ MonoBehaviour:
   bulletPrefab: {fileID: 9046335296602351421, guid: fcec50035def047e681d36374bc75508, type: 3}
   bulletForce: 20
   playerMovement: {fileID: 1977346928320552947}
-  defaultShootingAudio: {fileID: 0}
-  chuckShootingAudio: {fileID: 0}
+  defaultShootingAudio: {fileID: 8300000, guid: 3061c7b9b32d894478e4126ccce25ca3, type: 3}
+  chuckShootingAudio: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   playerSpriteRenderer: {fileID: 621725887908185967}
   ramboSprite: {fileID: 4421199962449419008, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
   bruceSprite: {fileID: 5314077070027530890, guid: 9de9d5b0e74364c798801161fd25e6fd, type: 3}
   chuckSprite: {fileID: 88181569045615764, guid: 8ea94883755b048da832f2bf6f721271, type: 3}
+  soundEffectsGroup: {fileID: -791004014498680561, guid: 6e6ec9d4a471f45f9910d8452dfbaaa4, type: 2}
 --- !u!114 &8053599365223843327
 MonoBehaviour:
   m_ObjectHideFlags: 0

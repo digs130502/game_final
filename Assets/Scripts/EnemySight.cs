@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class EnemySight : MonoBehaviour
 {
@@ -11,8 +12,11 @@ public class EnemySight : MonoBehaviour
     [SerializeField] float bulletForce = 15f;
     [SerializeField] EnemyPatrol enemyMovement;
     [SerializeField] AudioClip shootSound;
+
+    [SerializeField] AudioMixerGroup soundEffectsGroup; // Reference to the Sound Effects group in the Audio Mixer
+
     private bool playerInSight = false;
-    private bool isShooting = false; // New flag to prevent multiple coroutines
+    private bool isShooting = false; // Flag to prevent multiple coroutines
 
     void Shoot()
     {
@@ -50,9 +54,24 @@ public class EnemySight : MonoBehaviour
         while (playerInSight)
         {
             Shoot();
-            AudioSource.PlayClipAtPoint(shootSound, transform.position);
+            PlayShootingSound(shootSound); // Use the updated method for playing sound
             yield return new WaitForSeconds(1f); // Wait for 1 second before shooting again
         }
         isShooting = false; // Reset the flag when shooting stops
+    }
+
+    void PlayShootingSound(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            // Create an AudioSource at runtime to use the Sound Effects group
+            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.clip = clip;
+            audioSource.outputAudioMixerGroup = soundEffectsGroup; // Assign the Sound Effects group
+            audioSource.Play();
+
+            // Destroy the AudioSource after the clip finishes playing
+            Destroy(audioSource, clip.length);
+        }
     }
 }

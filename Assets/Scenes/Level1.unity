@@ -23164,6 +23164,10 @@ PrefabInstance:
       propertyPath: pointB
       value: 
       objectReference: {fileID: 1119996211}
+    - target: {fileID: 7298063270814089952, guid: b5fc67f2bd6a94fab92252bbe93d80e3, type: 3}
+      propertyPath: soundEffectsGroup
+      value: 
+      objectReference: {fileID: -791004014498680561, guid: 6e6ec9d4a471f45f9910d8452dfbaaa4, type: 2}
     - target: {fileID: 7411492754460752728, guid: b5fc67f2bd6a94fab92252bbe93d80e3, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -23282,14 +23286,6 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1515955790}
-    - target: {fileID: 3943656329091762568, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
-      propertyPath: chuckShootingAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
-    - target: {fileID: 3943656329091762568, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
-      propertyPath: defaultShootingAudio
-      value: 
-      objectReference: {fileID: 8300000, guid: 3061c7b9b32d894478e4126ccce25ca3, type: 3}
     - target: {fileID: 6314100029819054214, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.14

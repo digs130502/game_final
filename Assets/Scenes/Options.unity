@@ -1640,7 +1640,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2019259683}
+        m_TargetAssemblyTypeName: Options, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &648341783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,7 +2743,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Option A
+  m_Text: Resolution
 --- !u!222 &1104308633
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3496,7 +3508,19 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2019259683}
+        m_TargetAssemblyTypeName: Options, Assembly-CSharp
+        m_MethodName: SetSoundEffectsVolume
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1431815032
 GameObject:
   m_ObjectHideFlags: 0
@@ -4115,7 +4139,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2019259683}
         m_TargetAssemblyTypeName: Options, Assembly-CSharp
-        m_MethodName: onMainMenuButton
+        m_MethodName: OnMainMenuButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4870,10 +4894,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c01e8a93f2443b8814955fdc558035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resolutionDropdown: {fileID: 1431815033}
   masterVolumeSlider: {fileID: 836788904}
   soundEffectsVolumeSlider: {fileID: 1403278863}
   musicVolumeSlider: {fileID: 601729893}
+  resolutionDropdown: {fileID: 1431815033}
+  audioMixer: {fileID: 24100000, guid: 6e6ec9d4a471f45f9910d8452dfbaaa4, type: 2}
 --- !u!114 &2019259684
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -141,6 +141,7 @@ MonoBehaviour:
   bulletForce: 15
   enemyMovement: {fileID: 6019057265616806564}
   shootSound: {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
+  soundEffectsGroup: {fileID: -791004014498680561, guid: 6e6ec9d4a471f45f9910d8452dfbaaa4, type: 2}
 --- !u!61 &4922297114442538328
 BoxCollider2D:
   m_ObjectHideFlags: 0

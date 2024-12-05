@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Shooting : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Shooting : MonoBehaviour
     [SerializeField] Sprite ramboSprite; // Rambo's sprite
     [SerializeField] Sprite bruceSprite; // Bruce's sprite
     [SerializeField] Sprite chuckSprite; // Chuck's sprite
+
+    [SerializeField] AudioMixerGroup soundEffectsGroup; // Reference to the Sound Effects group in the Audio Mixer
 
     private bool isFiringContinuously = false; // To manage continuous fire for Bruce
 
@@ -110,7 +113,14 @@ public class Shooting : MonoBehaviour
     {
         if (clip != null)
         {
-            AudioSource.PlayClipAtPoint(clip, transform.position);
+            // Create an AudioSource at runtime to use the Sound Effects group
+            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.clip = clip;
+            audioSource.outputAudioMixerGroup = soundEffectsGroup; // Assign the Sound Effects group
+            audioSource.Play();
+
+            // Destroy the AudioSource after the clip finishes playing
+            Destroy(audioSource, clip.length);
         }
     }
 }
