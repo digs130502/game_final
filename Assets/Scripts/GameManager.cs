@@ -10,17 +10,28 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        // Singleton pattern
         if (Instance == null)
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            SelectedCharacterId = PlayerPrefs.GetInt("SelectedCharacter", 0);
+            Debug.Log("Loaded SelectedCharacterId: " + SelectedCharacterId);
+            UpdatePlayerSprite();
         }
         else
         {
             Destroy(gameObject);
         }
     }
+
+    void Start()
+    {
+        if (playerSpriteRenderer == null)
+        {
+            Debug.LogError("Player sprite renderer is not assigned!");
+        }
+    }
+
 
     public void UnlockCharacter(int characterId)
     {
@@ -39,6 +50,8 @@ public class GameManager : MonoBehaviour
         if (IsCharacterUnlocked(characterId))
         {
             SelectedCharacterId = characterId;
+            PlayerPrefs.SetInt("SelectedCharacter", characterId);
+            PlayerPrefs.Save(); // Ensure changes are written
             UpdatePlayerSprite();
             Debug.Log("Selected Character: " + characterId);
         }
@@ -48,8 +61,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     private void UpdatePlayerSprite()
     {
+        if (playerSpriteRenderer == null)
+        {
+            GameObject player = GameObject.FindWithTag("Player"); // Ensure your player has a "Player" tag
+            if (player != null)
+            {
+                playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
+            }
+        }
+
         if (playerSpriteRenderer != null && characterSprites != null && characterSprites.Length > SelectedCharacterId)
         {
             playerSpriteRenderer.sprite = characterSprites[SelectedCharacterId];
@@ -59,6 +82,7 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Player sprite renderer or character sprites array is not properly set!");
         }
     }
+
 
     // Level progression
     public void UnlockLevel(int level)

@@ -9,8 +9,14 @@ public class CharacterSelector : MonoBehaviour
 
     void Start()
     {
+        if (GameManager.Instance == null)
+        {
+            Debug.LogError("GameManager instance is not available!");
+            return;
+        }
+
         UpdateCharacterUI();
-        selectButton.onClick.AddListener(OnCharacterClicked); // Ensure the button listener is added
+        selectButton.onClick.AddListener(OnCharacterClicked);
     }
 
     void UpdateCharacterUI()
