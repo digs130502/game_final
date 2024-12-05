@@ -50168,7 +50168,7 @@ GameObject:
   - component: {fileID: 744329112}
   - component: {fileID: 744329111}
   - component: {fileID: 744329110}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Death Fall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55760,7 +55760,7 @@ GameObject:
   - component: {fileID: 1726714896}
   - component: {fileID: 1726714895}
   - component: {fileID: 1726714894}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Death Fall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
