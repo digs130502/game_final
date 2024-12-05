@@ -40849,11 +40849,11 @@ PrefabInstance:
       objectReference: {fileID: 716156615}
     - target: {fileID: 6314100029819054214, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 282.1
+      value: 281.67
       objectReference: {fileID: 0}
     - target: {fileID: 6314100029819054214, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -125.2
+      value: -125.5
       objectReference: {fileID: 0}
     - target: {fileID: 6314100029819054214, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
       propertyPath: m_LocalPosition.z
@@ -40890,14 +40890,6 @@ PrefabInstance:
     - target: {fileID: 6507079179306156259, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
       propertyPath: m_Name
       value: Rambo
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924814550544587110, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
-      propertyPath: m_Size.x
-      value: 0.10580444
-      objectReference: {fileID: 0}
-    - target: {fileID: 8924814550544587110, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.022109985
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
