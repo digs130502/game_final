@@ -41,6 +41,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        Debug.Log("Resume");
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
@@ -49,6 +50,7 @@ public class PauseMenu : MonoBehaviour
     public void OnMenu()
     {
         // Ensure time scale is reset before leaving the scene
+        Debug.Log("Quit");
         Time.timeScale = 1f;
         SceneManager.LoadScene(0);
     }
