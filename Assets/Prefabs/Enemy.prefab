@@ -468,6 +468,8 @@ MonoBehaviour:
   isFacingRight: 1
   polygonCollider: {fileID: 6178370434315300436}
   collisionBoxCollider: {fileID: 7265607911994792947}
+  shootSound: {fileID: 8300000, guid: 566d2ea6240b489479a6e9fd608c2621, type: 3}
+  soundEffectsGroup: {fileID: -791004014498680561, guid: 6e6ec9d4a471f45f9910d8452dfbaaa4, type: 2}
 --- !u!4 &7725665589628506941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}

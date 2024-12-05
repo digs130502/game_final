@@ -301,7 +301,7 @@ PrefabInstance:
     - target: {fileID: 3626916397498700004, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 5314077070027530890, guid: 9de9d5b0e74364c798801161fd25e6fd, type: 3}
+      objectReference: {fileID: 88181569045615764, guid: 8ea94883755b048da832f2bf6f721271, type: 3}
     - target: {fileID: 7878350319992209165, guid: fbd8159c4013043a78951f4b15285d6a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

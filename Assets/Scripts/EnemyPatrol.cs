@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class EnemyPatrol : MonoBehaviour
 {
@@ -13,14 +14,23 @@ public class EnemyPatrol : MonoBehaviour
     public bool isFacingRight = true;
     [SerializeField] private PolygonCollider2D polygonCollider;
     [SerializeField] private BoxCollider2D collisionBoxCollider;
-    // Start is called before the first frame update
+
+    [SerializeField] AudioClip shootSound;
+    [SerializeField] AudioMixerGroup soundEffectsGroup; // Reference to the Sound Effects group in the Audio Mixer
+
+    private AudioSource audioSource; // AudioSource to play sounds
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         currentPoint = pointB.transform;
+
+        // Initialize and configure the AudioSource
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.outputAudioMixerGroup = soundEffectsGroup;
+        audioSource.playOnAwake = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 point = currentPoint.position - transform.position;
@@ -53,7 +63,6 @@ public class EnemyPatrol : MonoBehaviour
         isFacingRight = !isFacingRight;
     }
 
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(pointA.transform.position, 1f);
@@ -61,13 +70,12 @@ public class EnemyPatrol : MonoBehaviour
         Gizmos.DrawLine(pointA.transform.position, pointB.transform.position);
     }
 
-
-
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
+            PlayShootSound();
+            Destroy(gameObject, 0.1f); // Delay slightly to allow sound to play
         }
 
         if (other.gameObject.CompareTag("Enemy"))
@@ -84,4 +92,11 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
+    private void PlayShootSound()
+    {
+        if (shootSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(shootSound);
+        }
+    }
 }
