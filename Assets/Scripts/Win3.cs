@@ -9,8 +9,15 @@ public class Win3 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            CompleteLevel();
             SceneManager.LoadScene(10);
             GameManager.Instance.UnlockCharacter(2); // unlocks bruce character
         }
+    }
+
+    public void CompleteLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        GameManager.Instance.CompleteLevel(currentSceneIndex);
     }
 }

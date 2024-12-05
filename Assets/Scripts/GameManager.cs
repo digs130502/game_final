@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
 
     private void UpdatePlayerSprite()
     {
-        // Ensure the sprite renderer and character sprites array are properly set
         if (playerSpriteRenderer != null && characterSprites != null && characterSprites.Length > SelectedCharacterId)
         {
             playerSpriteRenderer.sprite = characterSprites[SelectedCharacterId];
@@ -60,4 +59,24 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Player sprite renderer or character sprites array is not properly set!");
         }
     }
+
+    // Level progression
+    public void UnlockLevel(int level)
+    {
+        PlayerPrefs.SetInt("Level_" + level, 1);
+        PlayerPrefs.Save();
+    }
+
+    public bool IsLevelUnlocked(int level)
+    {
+        // Default: Level 1 (index 2) is unlocked at start
+        return PlayerPrefs.GetInt("Level_" + level, level == 2 ? 1 : 0) == 1;
+    }
+
+    public void CompleteLevel(int level)
+    {
+        UnlockLevel(level + 1); // Unlock the next level
+        Debug.Log("Level " + level + " completed. Level " + (level + 1) + " unlocked!");
+    }
 }
+

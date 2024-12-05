@@ -478,12 +478,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 930658734}
         m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: OnLevelThree
-        m_Mode: 1
+        m_MethodName: OnLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1049,12 +1049,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 930658734}
         m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: OnLevelFour
-        m_Mode: 1
+        m_MethodName: OnLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2389,6 +2389,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3500110c07aa2415eb56520c492b10c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelButtons:
+  - {fileID: 1997813246}
+  - {fileID: 1070474418}
+  - {fileID: 98098441}
+  - {fileID: 277293641}
+  lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  unlockedColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &971065911
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,12 +2783,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 930658734}
         m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: OnLevelTwo
-        m_Mode: 1
+        m_MethodName: OnLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4377,12 +4384,12 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 930658734}
         m_TargetAssemblyTypeName: LevelSelector, Assembly-CSharp
-        m_MethodName: OnLevelOne
-        m_Mode: 1
+        m_MethodName: OnLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

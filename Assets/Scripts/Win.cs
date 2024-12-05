@@ -9,7 +9,14 @@ public class Win : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            CompleteLevel();
             SceneManager.LoadScene(6);
         }
+    }
+
+    public void CompleteLevel()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        GameManager.Instance.CompleteLevel(currentSceneIndex);
     }
 }
