@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class CharacterSelector : MonoBehaviour
 {
-    public Image characterImage;
-    public Button selectButton;
-    public int characterId; // Assign a unique ID for each character
+    public GameObject[] characterPrefabs; // Array of character prefabs
+    public Button[] selectButtons; // Buttons for selecting characters
+    private int selectedCharacterId = 0; // Default to the first character
 
-    void Start()
+    private void Start()
     {
         if (GameManager.Instance == null)
         {
@@ -15,27 +15,51 @@ public class CharacterSelector : MonoBehaviour
             return;
         }
 
-        UpdateCharacterUI();
-        selectButton.onClick.AddListener(OnCharacterClicked);
+        // Ensure the first character is unlocked
+        GameManager.Instance.UnlockCharacter(0);
+
+        InitializeCharacterUI();
     }
 
-    void UpdateCharacterUI()
+    // Initializes UI for character selection
+    private void InitializeCharacterUI()
     {
-        if (GameManager.Instance.IsCharacterUnlocked(characterId))
+        for (int i = 0; i < characterPrefabs.Length; i++)
         {
-            characterImage.color = Color.white; // Show normal sprite
-            selectButton.interactable = true;
+            int characterId = i; // Capture index for closure
+
+            // Check if the character is unlocked
+            bool isUnlocked = GameManager.Instance.IsCharacterUnlocked(characterId);
+
+            // Enable or disable the button based on unlock status
+            selectButtons[characterId].interactable = isUnlocked;
+
+            // Assign a listener to the button
+            selectButtons[characterId].onClick.AddListener(() => OnCharacterSelected(characterId));
+        }
+    }
+
+    // Called when a character is selected
+    private void OnCharacterSelected(int characterId)
+    {
+        if (characterId >= 0 && characterId < characterPrefabs.Length)
+        {
+            selectedCharacterId = characterId;
+
+            // Notify the GameManager of the selected character
+            GameManager.Instance.SelectCharacter(characterId);
+
+            Debug.Log("Character " + characterId + " selected.");
         }
         else
         {
-            characterImage.color = Color.black; // Show locked appearance
-            selectButton.interactable = false;
+            Debug.LogError("Invalid character ID selected: " + characterId);
         }
     }
 
-    public void OnCharacterClicked()
+    // Provides the selected character prefab for instantiation
+    public GameObject GetSelectedCharacterPrefab()
     {
-        GameManager.Instance.SelectCharacter(characterId);
-        Debug.Log("Character " + characterId + " clicked and selected.");
+        return characterPrefabs[selectedCharacterId];
     }
 }

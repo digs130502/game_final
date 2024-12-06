@@ -1,44 +1,59 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Ladder : MonoBehaviour
 {
-    [SerializeField] bool isPlayerInArea = false;
-    [SerializeField] Rigidbody2D player;
+    private Rigidbody2D playerRigidbody; // Reference to the player's Rigidbody2D
+    private bool isPlayerInArea = false;
 
-    // Update is called once per frame
+    private void Start()
+    {
+        if (LevelManager.PlayerInstance != null)
+        {
+            playerRigidbody = LevelManager.PlayerInstance.GetComponent<Rigidbody2D>();
+            if (playerRigidbody == null)
+            {
+                Debug.LogError("Rigidbody2D not found on Player in LevelManager.");
+            }
+        }
+        else
+        {
+            Debug.LogError("PlayerInstance is null in LevelManager. Ensure the player is instantiated correctly.");
+        }
+    }
+
     void Update()
     {
-        if (isPlayerInArea)
+        if (isPlayerInArea && playerRigidbody != null)
         {
-            player.gravityScale = 0;
+            playerRigidbody.gravityScale = 0; // Set gravity scale to 0 while on the ladder
 
             if (Input.GetKey(KeyCode.W))
             {
-                ClimbLadder(1);
+                ClimbLadder(1); // Climb up
             }
             else if (Input.GetKey(KeyCode.S))
             {
-                ClimbLadder(-1);
+                ClimbLadder(-1); // Climb down
             }
             else
             {
-                player.velocity = new Vector2(player.velocity.x, 0);
+                // Stop vertical movement
+                playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 0);
             }
         }
     }
 
     void ClimbLadder(int direction)
     {
-        player.velocity = new Vector2(player.velocity.x, 5f * direction);
+        // Move the player vertically based on the direction (1 for up, -1 for down)
+        playerRigidbody.velocity = new Vector2(playerRigidbody.velocity.x, 5f * direction);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Player entered the ladder.");
             isPlayerInArea = true;
         }
     }
@@ -47,10 +62,13 @@ public class Ladder : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Player exited ladder.");
             isPlayerInArea = false;
 
-            player.gravityScale = 5;
+            if (playerRigidbody != null)
+            {
+                playerRigidbody.gravityScale = 5; // Reset gravity scale when exiting the ladder
+            }
         }
     }
-
 }

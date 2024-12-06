@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance { get; private set; }
 
-    public int SelectedCharacterId = 0; // Default to the first character
-    public SpriteRenderer playerSpriteRenderer; // Reference to the player's sprite renderer
-    public Sprite[] characterSprites; // Array of available character sprites
+    private int selectedCharacterId = 0; // Default selected character
+    private bool[] unlockedCharacters = new bool[3]; // Example unlock data
+    public GameObject[] characterPrefabs = new GameObject[3]; // Array of character prefabs
 
     void Awake()
     {
@@ -14,9 +14,9 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            SelectedCharacterId = PlayerPrefs.GetInt("SelectedCharacter", 0);
-            Debug.Log("Loaded SelectedCharacterId: " + SelectedCharacterId);
-            UpdatePlayerSprite();
+
+            // Ensure the first character is unlocked by default
+            unlockedCharacters[0] = true;
         }
         else
         {
@@ -24,65 +24,60 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        if (playerSpriteRenderer == null)
-        {
-            Debug.LogError("Player sprite renderer is not assigned!");
-        }
-    }
-
-
-    public void UnlockCharacter(int characterId)
-    {
-        PlayerPrefs.SetInt("Character_" + characterId, 1);
-        PlayerPrefs.Save();
-    }
-
+    // Check if a character is unlocked
     public bool IsCharacterUnlocked(int characterId)
     {
-        // Default to unlocked for the first character (ID 0)
-        return PlayerPrefs.GetInt("Character_" + characterId, characterId == 0 ? 1 : 0) == 1;
+        if (characterId >= 0 && characterId < unlockedCharacters.Length)
+        {
+            return unlockedCharacters[characterId];
+        }
+        Debug.LogError("Invalid character ID: " + characterId);
+        return false;
     }
 
+    // Unlock a character
+    public void UnlockCharacter(int characterId)
+    {
+        if (characterId >= 0 && characterId < unlockedCharacters.Length)
+        {
+            unlockedCharacters[characterId] = true;
+        }
+        else
+        {
+            Debug.LogError("Invalid character ID: " + characterId);
+        }
+    }
+
+    // Select a character for the game session
     public void SelectCharacter(int characterId)
     {
-        if (IsCharacterUnlocked(characterId))
+        if (characterId >= 0 && characterId < characterPrefabs.Length)
         {
-            SelectedCharacterId = characterId;
-            PlayerPrefs.SetInt("SelectedCharacter", characterId);
-            PlayerPrefs.Save(); // Ensure changes are written
-            UpdatePlayerSprite();
-            Debug.Log("Selected Character: " + characterId);
+            selectedCharacterId = characterId;
+            Debug.Log("Character " + characterId + " selected.");
         }
         else
         {
-            Debug.Log("Character is locked!");
+            Debug.LogError("Invalid character ID: " + characterId);
         }
     }
 
-
-    private void UpdatePlayerSprite()
+    // Get the currently selected character prefab
+    public GameObject GetSelectedCharacterPrefab()
     {
-        if (playerSpriteRenderer == null)
+        if (selectedCharacterId >= 0 && selectedCharacterId < characterPrefabs.Length)
         {
-            GameObject player = GameObject.FindWithTag("Player"); // Ensure your player has a "Player" tag
-            if (player != null)
-            {
-                playerSpriteRenderer = player.GetComponent<SpriteRenderer>();
-            }
+            return characterPrefabs[selectedCharacterId];
         }
-
-        if (playerSpriteRenderer != null && characterSprites != null && characterSprites.Length > SelectedCharacterId)
-        {
-            playerSpriteRenderer.sprite = characterSprites[SelectedCharacterId];
-        }
-        else
-        {
-            Debug.LogWarning("Player sprite renderer or character sprites array is not properly set!");
-        }
+        Debug.LogError("Selected character ID is invalid: " + selectedCharacterId);
+        return null;
     }
 
+    // **New Method**: Get the selected character ID
+    public int GetSelectedCharacterId()
+    {
+        return selectedCharacterId;
+    }
 
     // Level progression
     public void UnlockLevel(int level)
@@ -103,4 +98,3 @@ public class GameManager : MonoBehaviour
         Debug.Log("Level " + level + " completed. Level " + (level + 1) + " unlocked!");
     }
 }
-

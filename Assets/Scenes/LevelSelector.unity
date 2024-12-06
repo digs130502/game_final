@@ -268,7 +268,6 @@ GameObject:
   - component: {fileID: 94097063}
   - component: {fileID: 94097062}
   - component: {fileID: 94097061}
-  - component: {fileID: 94097060}
   m_Layer: 5
   m_Name: Chuck
   m_TagString: Untagged
@@ -296,21 +295,6 @@ RectTransform:
   m_AnchoredPosition: {x: 194, y: -155}
   m_SizeDelta: {x: 158.7052, y: 146.0115}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &94097060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 94097058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd0a26162cc4144bf8e02cc21e43f32a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterImage: {fileID: 94097062}
-  selectButton: {fileID: 94097061}
-  characterId: 2
 --- !u!114 &94097061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1699,7 +1683,6 @@ GameObject:
   - component: {fileID: 501484894}
   - component: {fileID: 501484893}
   - component: {fileID: 501484892}
-  - component: {fileID: 501484891}
   m_Layer: 5
   m_Name: Rambo
   m_TagString: Untagged
@@ -1727,21 +1710,6 @@ RectTransform:
   m_AnchoredPosition: {x: 189, y: 67}
   m_SizeDelta: {x: 109.5031, y: 104.5782}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &501484891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 501484889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd0a26162cc4144bf8e02cc21e43f32a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterImage: {fileID: 501484893}
-  selectButton: {fileID: 501484892}
-  characterId: 0
 --- !u!114 &501484892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1836,7 +1804,6 @@ GameObject:
   - component: {fileID: 614256435}
   - component: {fileID: 614256434}
   - component: {fileID: 614256433}
-  - component: {fileID: 614256432}
   m_Layer: 5
   m_Name: Bruce
   m_TagString: Untagged
@@ -1864,21 +1831,6 @@ RectTransform:
   m_AnchoredPosition: {x: 188, y: -40}
   m_SizeDelta: {x: 158.7052, y: 146.0115}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &614256432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614256430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd0a26162cc4144bf8e02cc21e43f32a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterImage: {fileID: 614256434}
-  selectButton: {fileID: 614256433}
-  characterId: 1
 --- !u!114 &614256433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2278,6 +2230,7 @@ GameObject:
   - component: {fileID: 930658731}
   - component: {fileID: 930658730}
   - component: {fileID: 930658734}
+  - component: {fileID: 930658735}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2396,6 +2349,26 @@ MonoBehaviour:
   - {fileID: 277293641}
   lockedColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   unlockedColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &930658735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930658729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0a26162cc4144bf8e02cc21e43f32a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterPrefabs:
+  - {fileID: 6507079179306156259, guid: d3f2e32d071414280ab10cfb1e9a7560, type: 3}
+  - {fileID: 6507079179306156259, guid: 0a37a1fee29a644198c391162825f3cb, type: 3}
+  - {fileID: 6507079179306156259, guid: 816d7fbfae3214f8f8223c43bb02e9d8, type: 3}
+  selectButtons:
+  - {fileID: 501484892}
+  - {fileID: 614256433}
+  - {fileID: 94097061}
 --- !u!1 &971065911
 GameObject:
   m_ObjectHideFlags: 0

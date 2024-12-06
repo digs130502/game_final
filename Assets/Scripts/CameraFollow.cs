@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
@@ -10,15 +8,41 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] private Transform target;
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-
+        // Attempt to find the active player character if the target isn't assigned
+        if (target == null)
+        {
+            FindPlayerTarget();
+        }
     }
 
     void FixedUpdate()
     {
-        Vector3 targetPosition = target.position + offset;
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+        if (target != null)
+        {
+            Vector3 targetPosition = target.position + offset;
+            transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+        }
+    }
+
+    // Dynamically find the active player character
+    private void FindPlayerTarget()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            target = player.transform;
+        }
+        else
+        {
+            Debug.LogError("No player object found with tag 'Player'. Make sure your player has the 'Player' tag.");
+        }
+    }
+
+    // Public method to manually set the target
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 }

@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayerInArea: 0
-  player: {fileID: 0}
 --- !u!61 &3663614817532596001
 BoxCollider2D:
   m_ObjectHideFlags: 0
